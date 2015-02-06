@@ -1,0 +1,98 @@
+Dan's idea for weather data entities
+
+Data Type Character codes 
+   Data identifiers have two char codes.
+   First code is item that can be sensed. Second code is unit.
+   Weather information
+   tf = temperature, fahrenheit
+   tc = temperature, celsius
+   wm = wind speed, mph
+   wk = wind speed, kph
+   wb = wind direction, bearing (0-359) or (N,NNE,NE,ENE,E)
+   hp = humidity, percent
+   pm = pressure, mm
+   ri = rain, inches
+   rm = rain, millimeters
+   si = snow, inches
+   vf = visibility, feet
+   vm = visibility, meters
+   cp = cloud cover, percent
+   cd = cloud cover description (clearn, partly, overcast)
+   lc = lightning, count
+   df = dewpoint, fahrenheit, (calculated?)
+   ll = light, lux
+   uv = uv index, unit?
+   sr = solar radiation, unit?
+   et = evapotranspiration, unit?
+   Non-weather information
+   ts = time stamp, e.g. 2015-02-06_20-19-44
+   la = location latitude, e.g. 30.415064
+   lo = location longiture, e.g. -97.762424
+   Meta data
+   wt = weather station code text, transmit or receive, e.g. wt01, wt02
+   ai = author initials, text, e.g. DOB
+   an = author name, text, e.g. Dan Becker
+
+Data Type Adjectives
+   A third character can be added to a data code to indicate an adjective.
+   a = average
+   h = high
+   l = low
+   Example: Temperature, fahrenheit, high or low tfh=81.2, tfl=59.8
+   
+File paths and names 
+   Store files in data directory.
+   Data directory can have multiple sub directories.
+   Sub directory names show aggregation, for example by time, station, lat/lon.
+   Use file system friendly characters.
+   Each file has timestamp (down to hh:mm:ss), transmitter station name, lat/lon.
+   For example 2015-02-06_20-19-44_wt01_30.415064_-97.762424.txt
+
+Sample files data
+   Data sample consists of key and value. Key/value delimiter is "=". Example: tf=67.2
+   Multiple samples separated by the "," delimiter. Example: wm=7.2,wb=8
+   If "," is not file name safe, use the "_" delimiter.
+   With more than one line, line should begin with differentiator (usually time, station, or place)
+   Differentiator prefix is delimited by ":" delimiter.
+   If no differentiator, the line assume the data from the file name.
+   Example file lines from a 2015-02-06-20-19-xx_: 
+      2015-02-06_20-19-44:wm=8.6,wb=10
+      2015-02-06_20-19-45:wm=7.0,wb=8,tf=67.1
+      2015-02-06_20-19-46:wm=7.2,wb=12
+      2015-02-06_20-19-47:wm=7,8,wb=15
+      2015-02-06_20-19-48:wm=8.6,wb=10
+      2015-02-06_20-19-49:wm=7.4,wb=8
+      2015-02-06_20-19-50:wm=7.1,wb=4,tf=67.6
+	  
+Samples can be bubbled up into summaries/aggregations
+   The file name should have wild card chars or omissions to show aggregation.
+
+   Instantaneous sample from one station, one place.
+   2015-02-06_20-19-44_tr01_30.415064_-97.762424.txt
+
+   Multiple samples for one minute from one station, one place.
+   2015-02-06_20-19-xx_tr01_30.415064_-97.762424.txt
+
+   Multiple samples for one hour from one station, one place.
+   2015-02-06_20-xx-xx_tr01_30.415064_-97.762424.txt
+
+   Multiple samples for one hour from multiple stations, one place.
+   2015-02-06_20-xx-xx_xxxx_30.415064_-97.762424.txt
+
+   Year's samples from multiple stations, one place.
+   2015-xx-xx_xx-xx-xx_xxxx_30.415064_-97.762424.txt
+
+   Daily samples from multiple stations, certain radius of a place.
+   2015-02-06_xx-xx-xx_xxxx_30.4xxxxx_-97.7xxxxx.txt
+
+Data Transformations
+   Data sample sets should support Map, Filter, Reduce
+   Mapping
+     Example, map tf to tc (temp fahrenheit to temp celsius)
+	 Example, map wm to wk (wind mph to wind kph)
+   Filter
+     Example, pull just temperature data, pull just one station data, pull author name.
+   Reduce
+     Convert mulitple samples to reduced sample
+     Example: from a sample set, calculate average, high, low
+	
