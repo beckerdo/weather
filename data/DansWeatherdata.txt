@@ -1,4 +1,4 @@
-Dan's idea for weather data entities
+Dan's Ideas for Weather Data Entities
 
 Data Type Character codes 
    Data identifiers have two char codes.
@@ -30,11 +30,12 @@ Data Type Character codes
    lo = location longiture, e.g. -97.762424
    Meta data
    wt = weather station code text, transmit or receive, e.g. wt01, wt02
+   sd = server code text, function d=database, h=http
    ai = author initials, text, e.g. DOB
    an = author name, text, e.g. Dan Becker
 
 Data Type Adjectives
-   A third character can be added to a data code to indicate an adjective.
+   A third character can be added to a data code to indicate a map/filter/reduce adjective.
    a = average
    h = high
    l = low
@@ -42,27 +43,30 @@ Data Type Adjectives
    
 File paths and names 
    Store files in data directory.
-   Data directory can have multiple sub directories.
-   Sub directory names show aggregation, for example by time, station, lat/lon.
+   Files and paths can have multiple sub directories.
+   Any path can have a file common.txt, listing common data for path subtree, for example time, station 
+   Directory path names can also show common data, for example by time, station, lat/lon.
    Use file system friendly characters.
    Each file has timestamp (down to hh:mm:ss), transmitter station name, lat/lon.
    For example 2015-02-06_20-19-44_wt01_30.415064_-97.762424.txt
+   When file or path common data has XXs or missing values in name, it means value data will fill in missing wildcards.
 
 Sample files data
    Data sample consists of key and value. Key/value delimiter is "=". Example: tf=67.2
    Multiple samples separated by the "," delimiter. Example: wm=7.2,wb=8
    If "," is not file name safe, use the "_" delimiter.
-   With more than one line, line should begin with differentiator (usually time, station, or place)
-   Differentiator prefix is delimited by ":" delimiter.
-   If no differentiator, the line assume the data from the file name.
-   Example file lines from a 2015-02-06-20-19-xx_: 
-      2015-02-06_20-19-44:wm=8.6,wb=10
-      2015-02-06_20-19-45:wm=7.0,wb=8,tf=67.1
-      2015-02-06_20-19-46:wm=7.2,wb=12
-      2015-02-06_20-19-47:wm=7,8,wb=15
-      2015-02-06_20-19-48:wm=8.6,wb=10
-      2015-02-06_20-19-49:wm=7.4,wb=8
-      2015-02-06_20-19-50:wm=7.1,wb=4,tf=67.6
+   When common data, directory path, or file name has missing data or wild cards, data from
+      a line can be resolved into the wild cards to fully resolve the data sample.
+      For example if the directory path is labeled ts=2015-02-xx_xx-xx ot ts=2015-02, the
+      following example lines can help fully resolve the data sample:
+   Example file lines complete the timestamp: 
+      ts=2015-02-06_20-19-44,wm=8.6,wb=10
+      ts=2015-02-06_20-19-45,wm=7.0,wb=8,tf=67.1
+      ts=2015-02-06_20-19-46,wm=7.2,wb=12
+      ts=2015-02-07_20-19-47,wm=7,8,wb=15
+      ts=2015-02-07_20-19-48,wm=8.6,wb=10
+      ts=2015-02-07_20-19-49,wm=7.4,wb=8
+      ts=2015-02-07_20-19-50,wm=7.1,wb=4,tf=67.6
 	  
 Samples can be bubbled up into summaries/aggregations
    The file name should have wild card chars or omissions to show aggregation.
@@ -95,4 +99,3 @@ Data Transformations
    Reduce
      Convert mulitple samples to reduced sample
      Example: from a sample set, calculate average, high, low
-	
