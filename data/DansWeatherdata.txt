@@ -26,8 +26,9 @@ Data Type Character codes
    et = evapotranspiration, unit?
    Non-weather information
    ts = time stamp, e.g. 2015-02-06_20-19-44
-   la = location latitude, e.g. 30.415064
-   lo = location longiture, e.g. -97.762424
+   la = location latitude, e.g. 30.415047
+   lo = location longitude, e.g. -97.762373
+   af = altitude (ft.), e.g. 860.3
    Meta data
    wt = weather station code text, transmit or receive, e.g. wt01, wt02
    sd = server code text, function d=database, h=http
