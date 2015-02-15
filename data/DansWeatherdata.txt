@@ -10,9 +10,11 @@ Data Type Character codes
    wk = wind speed, kph
    wb = wind direction, bearing (0-359) or (N,NNE,NE,ENE,E)
    hp = humidity, percent
-   pm = pressure, mm
+   pm = pressure, mm , a = absolute, r = relative
+   pi = pressure, inches 
    ri = rain, inches
    rm = rain, millimeters
+   sc = snow, cm
    si = snow, inches
    vf = visibility, feet
    vm = visibility, meters
@@ -24,16 +26,23 @@ Data Type Character codes
    uv = uv index, unit?
    sr = solar radiation, unit?
    et = evapotranspiration, unit?
+
    Non-weather information
    ts = time stamp, e.g. 2015-02-06_20-19-44
    la = location latitude, e.g. 30.415047
    lo = location longitude, e.g. -97.762373
+   am = altitude (m), e.g. 860.3
    af = altitude (ft.), e.g. 860.3
+
    Meta data
-   wt = weather station code text, transmit or receive, e.g. wt01, wt02
+   sid = sensor id
+   did = device id
+   tid = transmitter ID, transmit or receive, e.g. wt01, wt02
+   rid = receiveer ID 
    sd = server code text, function d=database, h=http
    ai = author initials, text, e.g. DOB
    an = author name, text, e.g. Dan Becker
+   vv = voltage
 
 Data Type Adjectives
    A third character can be added to a data code to indicate a map/filter/reduce adjective.
