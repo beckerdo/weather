@@ -106,6 +106,13 @@ Samples can be bubbled up into summaries/aggregations
    Daily samples from multiple stations, certain radius of a place.
    2015-02-06_xx-xx-xx_xxxx_30.4xxxxx_-97.7xxxxx.txt
 
+Aggregation Process
+   Get current time
+   Check for existing time stamp ss-mm-hh-DD-MM-YYYY
+   Create directories for hh-DD-MM-YYYY
+   Create files for hh-DD-MM-YYYY. Break out by DID?
+   If new, perform min/avg/max. Create files for DD-MM-YY, MM-YYYY, etc.
+   
 Data Transformations
    Data sample sets should support Map, Filter, Reduce
    Mapping
