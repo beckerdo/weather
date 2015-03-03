@@ -4,45 +4,52 @@ Data Type Character codes
    Data identifiers have two char codes.
    First code is item that can be sensed. Second code is unit.
    Weather information
-   tf = temperature, fahrenheit
-   tc = temperature, celsius
-   wm = wind speed, mph
-   wk = wind speed, kph
+   tf = temperature, fahrenheit, tc = temperature, celsius
+   wm = wind speed, mph, wk = wind speed, kph
    wb = wind direction, bearing (0-359) or (N,NNE,NE,ENE,E)
    hp = humidity, percent
-   pm = pressure, mm , a = absolute, r = relative
-   pi = pressure, inches 
-   ri = rain, inches
-   rm = rain, millimeters
-   sc = snow, cm
-   si = snow, inches
-   vf = visibility, feet
-   vm = visibility, meters
+   pm = pressure, mm, pi=pressure, inches, a=absolute, r=relative
+   ri = rain, inches, rm = rain, millimeters
+   sc = snow, cm, si = snow, inches
+   vf = visibility, feet vm = visibility, meters
    cp = cloud cover, percent
    cd = cloud cover description (clearn, partly, overcast)
    lc = lightning, count
-   df = dewpoint, fahrenheit, (calculated?)
-   ll = light, lux
+   df = dewpoint, fahrenheit, dc=celsius (calculated?)
+   ll = light, lux, w/m2
    uv = uv index, unit?
    sr = solar radiation, unit?
    et = evapotranspiration, unit?
 
    Non-weather information
-   ts = time stamp, e.g. 2015-02-06_20-19-44
-   la = location latitude, e.g. 30.415047
-   lo = location longitude, e.g. -97.762373
-   am = altitude (m), e.g. 860.3
-   af = altitude (ft.), e.g. 860.3
+   TimeStamp 
+      ts = time stamp, e.g. 2015-02-06-20-19-44
+   Location 
+      la = location latitude, e.g. 30.415047
+      lo = location longitude, e.g. -97.762373
+      am = altitude (m), e.g. 860.3, af = altitude (ft.), e.g. 860.3
+   Author
+      ai = author initials, text, e.g. DOB
+      an = author name, text, e.g. Dan Becker
+   Device
+      did = device id
+	  tid = type id - computer (database server, web), sensor, tx/rx
+   Voltage/Current/Resistance/Capacity/Flux
 
-   Meta data
-   sid = sensor id
-   did = device id
-   tid = transmitter ID, transmit or receive, e.g. wt01, wt02
-   rid = receiveer ID 
-   sd = server code text, function d=database, h=http
-   ai = author initials, text, e.g. DOB
-   an = author name, text, e.g. Dan Becker
-   vv = voltage
+Data Modeling
+   English grammar structure 	ER structure				Shape
+   Common noun 					Entity type					Rectangle
+   Proper noun 					Entity						Rectangle
+   Transitive verb 				Relationship type			Diamond
+   Intransitive verb 			Attribute type				Ellipse
+   Adjective 					Attribute for entity	  	Ellipse
+   Adverb 						Attribute for relationship	Ellipse
+
+Cardinality - Crow's Foot Notation
+   || 		One mandatory (exactly one)
+   |<		Many mandatory (one or more)
+   O|		One optional (zero or one)
+   O<		Many optional (zero, one, or more)
 
 Data Type Adjectives
    A third character can be added to a data code to indicate a map/filter/reduce adjective.
