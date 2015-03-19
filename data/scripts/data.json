@@ -1,4 +1,32 @@
-tid=t1,sid=s0,tf=76,hp=45,bm=927,vcc=4.4
-tid=t1,sid=s1,tf=76,hp=45,bm=927,vcc=4.4
-tid=t1,sid=s1,tf=76,hp=45,bm=927,vcc=4.4
-tid=t1,sid=s1,tf=76,hp=45,bm=927,vcc=4.4
+// Transmitter
+connecting at 115200
+Si7021 init success.
+BMP180 init success. Alt=859.6 ft.
+Si1145 init success.
+TSL2561 init success. FactoryID=0x50, gain=1X, time=402mS
+ML8511 init success. uV measured on pin 21. Reference Vcc measured on pin 14.
+GA1A1S201WP init success. Light measured on pin 16. Reference Vcc measured on pin 14.
+RFM69 init success. Transmitting at 433 Mhz. Retry count=1. Retry delay=80mS. Send delay=1000mS.
+
+Sending 46 bytes "tid=t1, sid=s0, tf=73.6, hp=45, vvr=3.36, tm=0" - no ack.
+Sending 45 bytes "tid=t1, sid=s1, tf=72.6, pia=29.35, pir=30.28" - no ack.
+Sending 41 bytes "tid=t1, sid=s2, vis=261, ir=254, uvi=0.02" - no ack.
+Sending 23 bytes "tid=t1, sid=s3, vl=8.80" - no ack.
+Sending 24 bytes "tid=t1, sid=s4, uvW=0.44" - no ack.
+Sending 46 bytes "tid=t1, sid=s0, tf=73.4, hp=44, vvr=3.36, tm=0" - no ack.
+Sending 45 bytes "tid=t1, sid=s1, tf=72.5, pia=29.36, pir=30.28" - no ack.
+Sending 41 bytes "tid=t1, sid=s2, vis=261, ir=253, uvi=0.02" - no ack.
+Sending 23 bytes "tid=t1, sid=s3, vl=8.80" - no ack.
+Sending 24 bytes "tid=t1, sid=s4, uvW=0.43" - no ack.
+
+// Receiver
+connecting at 115200
+SPI flash init success. Unique MAC=D7 64 90 B4 C7 31 B0 2E
+RF init success. Receiving at 433 Mhz.
+RF message format: r/t [packet#] [device#] msg
+
+R[1][2] "tid=t1, sid=s0, tf=68.1, hp=72, vvr=5.44, tm=594" - ack.
+R[2][2] "tid=t1, sid=s1, tf=67.2, pia=29.03, pir=29.94" - ack.
+R[3][2] "tid=t1, sid=s2, vis=260, ir=253, uvi=0.02" - ack.
+R[4][2] "tid=t1, sid=s3, vl=0.01" - ack.
+R[5][2] "tid=t1, sid=s4, uvW=0.00" - ack.
