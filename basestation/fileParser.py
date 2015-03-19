@@ -18,7 +18,7 @@ import re
 
 lineFilter = '^\s*R\[.+'
 lineFilterRE = re.compile(lineFilter)
-fields= '^\s*R\[(?P<packet>\d+)\]\[(?P<device>\d+)\]\s*\"(?P<properties>[^\"]*)\" - ack now=(?P<timestamp>.*).*'
+fields= '^\s*R\[(?P<packet>\d+)\]\[(?P<device>\d+)\]\s*\"(?P<properties>[^\"]*)\" - ack ts=(?P<timestamp>.*).*'
 fieldsRE = re.compile( fields )
 propDelim = ','
 keyValDelim = '='
