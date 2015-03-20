@@ -48,5 +48,7 @@ def alertEmail(msg):
         server.sendmail(emailFrom, [emailDest], emailBody)
         server.quit()
 
-# Send an email
-alertEmail( 'At ' + datetime.strftime(datetime.now(),'%Y-%m-%d %H:%M:%S') + ' the temperature is 72F.')
+# Send an email with a thread
+emailMsg = 'At ' + datetime.strftime(datetime.now(),'%Y-%m-%d %H:%M:%S') + ' the temperature is 72F.'
+asyncSend = threading.Thread(target=alertEmail(emailMsg))
+asyncSend.start()
