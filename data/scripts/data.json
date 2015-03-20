@@ -25,14 +25,14 @@ SPI flash init success. Unique MAC=D7 64 90 B4 C7 31 B0 2E
 RF init success. Receiving at 433 Mhz.
 RF message format: r/t [packet#] [device#] msg
 
-R[1][2] "tid=t1, sid=s0, tf=68.1, hp=72, vvr=5.44, tm=594" - ack now=2015-03-19 09:51:45
-R[2][2] "tid=t1, sid=s1, tf=67.2, pia=29.03, pir=29.94" - ack now=2015-03-19 09:51:55
-R[3][2] "tid=t1, sid=s2, vis=260, ir=253, uvi=0.02" - ack now=2015-03-19 09:52:05
-R[4][2] "tid=t1, sid=s3, vl=0.01" - ack now=2015-03-19 09:52:10
-R[5][2] "tid=t1, sid=s4, uvW=0.00" - ack. now=2015-03-19 09:52:15
-R[6][2] "tid=t1, sid=s0, tf=69.1, hp=76, vvr=5.55, tm=596" - ack now=2015-03-19 09:53:45
-R[7][2] "tid=t1, sid=s1, tf=68.2, pia=29.22, pir=30.01" - ack now=2015-03-19 09:53:55
-R[8][2] "tid=t1, sid=s2, vis=265, ir=258, uvi=0.04" - ack now=2015-03-19 09:54:05
-R[9][2] "tid=t1, sid=s3, vl=0.05" - ack now=2015-03-19 09:54:10
-R[10][2] "tid=t1, sid=s4, uvW=0.02" - ack now=2015-03-19 09:54:15
-R[11][2] "tid=t1, sid=s4, uvW=0.02" - ack now=2015-03-19 09:54:55
+R[1][2] "tid=t1, sid=s0, tf=68.1, hp=72, vvr=5.44, tm=594" - ack ts=2015-03-19 09:51:45
+R[2][2] "tid=t1, sid=s1, tf=67.2, pia=29.03, pir=29.94" - ack ts=2015-03-19 09:51:55
+R[3][2] "tid=t1, sid=s2, vis=260, ir=253, uvi=0.02" - ack ts=2015-03-19 09:52:05
+R[4][2] "tid=t1, sid=s3, vl=0.01" - ack ts=2015-03-19 09:52:10
+R[5][2] "tid=t1, sid=s4, uvW=0.01" - ack ts=2015-03-19 09:52:15
+R[6][2] "tid=t1, sid=s0, tf=69.1, hp=76, vvr=5.55, tm=596" - ack ts=2015-03-19 09:53:45
+R[7][2] "tid=t1, sid=s1, tf=68.2, pia=29.22, pir=30.01" - ack ts=2015-03-19 09:53:55
+R[8][2] "tid=t1, sid=s2, vis=265, ir=258, uvi=0.04" - ack ts=2015-03-19 09:54:05
+R[9][2] "tid=t1, sid=s3, vl=0.05" - ack ts=2015-03-19 09:54:10
+R[10][2] "tid=t1, sid=s4, uvW=0.02" - ack ts=2015-03-19 09:54:15
+R[11][2] "tid=t1, sid=s4, uvW=0.02" - ack ts=2015-03-19 09:54:55
