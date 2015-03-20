@@ -28,12 +28,11 @@ keyAggr = ['tid','sid']
 #    R[1][2] "tid=t1, sid=s0, tf=68.1, hp=72, vvr=5.44, tm=594" - ack ts=2015-03-19 09:51:45.
 #    R[2][2] "tid=t1, sid=s1, tf=67.2, pia=29.03, pir=29.94" - ack ts=2015-03-19 09:51:55.
 # Results
-# dict key  val       
-# t1.s0.tf  [68.1,69.2,70.2,71.0]
-# t1.s0.hp  [72,73,74,78,80,81]
-# t1.s1.pia [29.03,29.04,29.44,]
-def parseFile(filename):
-  values = {}  # Map each word to its count
+# values={
+    't1.s2.uvi': [('2015-03-19 09:52:05', '0.02'), ('2015-03-19 09:54:05', '0.04')], 
+    't1.s1.pia': [('2015-03-19 09:51:55', '29.03'), ('2015-03-19 09:53:55', '29.22')]}
+def parseSamples(filename):
+  values = {} # Contains the returned values.
   input_file = open(filename, 'r')
   for line in input_file:
     # Filter out candidate lines with an easy RE.
@@ -100,14 +99,16 @@ def main():
 
   option = sys.argv[1]
   filename = sys.argv[2]
+  # Use options to perform fancy things.
   if option == '--option1':
-    print 'values=' + str( parseFile(filename) )
+    print 'values=' + str( parseSamples(filename) )
   elif option == '--option1':
-    print 'values=' + str( parseFile(filename) )
+    print 'values=' + str( parseSamples(filename) )
   else:
     print 'unknown option: ' + option
     sys.exit(1)
     
+  # Test capabilities of timeStampWild.    
   t1 = '2015-03-15 10:31:04'
   t2 = '2015/03/15 10:32:44'
   print 't1 (' + t1 + ') or t2(' + t2 + ') => ' + timeStampWild( t1, t2 )
