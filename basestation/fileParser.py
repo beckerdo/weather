@@ -29,8 +29,8 @@ keyAggr = ['tid','sid']
 #    R[2][2] "tid=t1, sid=s1, tf=67.2, pia=29.03, pir=29.94" - ack ts=2015-03-19 09:51:55.
 # Results
 # values={
-    't1.s2.uvi': [('2015-03-19 09:52:05', '0.02'), ('2015-03-19 09:54:05', '0.04')], 
-    't1.s1.pia': [('2015-03-19 09:51:55', '29.03'), ('2015-03-19 09:53:55', '29.22')]}
+#    't1.s2.uvi': [('2015-03-19 09:52:05', '0.02'), ('2015-03-19 09:54:05', '0.04')], 
+#    't1.s1.pia': [('2015-03-19 09:51:55', '29.03'), ('2015-03-19 09:53:55', '29.22')]}
 def parseSamples(filename):
   values = {} # Contains the returned values.
   input_file = open(filename, 'r')
@@ -44,7 +44,7 @@ def parseSamples(filename):
          packet = groups.group('packet')
          timestamp = groups.group('timestamp')
          properties = groups.group('properties')
-         print 'packet,time,props=' + packet + ',' + timestamp + ',' + properties
+         print ( 'packet,time,props=' + packet + ',' + timestamp + ',' + properties )
          # Break properties into keys,values list
          words = re.findall(r"[\w\.]+", properties )
          # print 'words=' + str( words )
@@ -94,24 +94,24 @@ def timeStampWild(ts1,ts2,wildChar='X'):
 # For example ./fileParser.py ../data/scripts/data.json
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./fileParser.py {--option1 | --option2} file'
+    print('usage: ./fileParser.py {--option1 | --option2} file')
     sys.exit(1)
 
   option = sys.argv[1]
   filename = sys.argv[2]
   # Use options to perform fancy things.
   if option == '--option1':
-    print 'values=' + str( parseSamples(filename) )
+    print( 'values=' + str( parseSamples(filename) ))
   elif option == '--option1':
-    print 'values=' + str( parseSamples(filename) )
+    print( 'values=' + str( parseSamples(filename) ))
   else:
-    print 'unknown option: ' + option
+    print( 'unknown option: ' + option)
     sys.exit(1)
     
   # Test capabilities of timeStampWild.    
   t1 = '2015-03-15 10:31:04'
   t2 = '2015/03/15 10:32:44'
-  print 't1 (' + t1 + ') or t2(' + t2 + ') => ' + timeStampWild( t1, t2 )
+  print('t1 (' + t1 + ') or t2(' + t2 + ') => ' + timeStampWild( t1, t2 ))
 
 if __name__ == '__main__':
   main()

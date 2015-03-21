@@ -12,8 +12,8 @@
 # Import modules
 import time
 import sys
-import threading
 import string
+import threading
 import smtplib
 import getpass
 from datetime import datetime
@@ -33,13 +33,13 @@ emailSig = 'Thanks, Dan Becker at KTXAUSTI464'
 # This function is for sending out emails.
 def alertEmail(msg):
     for emailDest in emailList:
-        emailBody = string.join((
+        emailBody = "\r\n".join((
 			"From: %s" % emailFrom,
 			"To: %s" % emailDest,
 			"Subject: %s" % emailSubj,
 			"",
 			msg + "\r\n\r\n%s\r\n\r\n" % emailSig,
-			), "\r\n")
+			))
         # print 'email body=\n' + emailBody
         server = smtplib.SMTP(emailSMTP) # Gmail SMTP server address
         server.ehlo()
